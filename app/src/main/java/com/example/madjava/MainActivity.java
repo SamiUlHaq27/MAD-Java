@@ -65,7 +65,13 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onStop()
     {
-        super.onStop();
         Toast.makeText(this, "this is onStop Function", Toast.LENGTH_SHORT).show();
+        super.onStop();
+    }
+
+    protected void onDestroy()
+    {
+        Toast.makeText(this, "this is onDestroy Function", Toast.LENGTH_SHORT).show();
+        super.onDestroy();
     }
 }
