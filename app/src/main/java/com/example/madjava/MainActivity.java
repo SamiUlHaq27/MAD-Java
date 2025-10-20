@@ -2,9 +2,11 @@ package com.example.madjava;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.Toast;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -15,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
@@ -38,5 +41,31 @@ public class MainActivity extends AppCompatActivity {
                 layout.setBackgroundColor(Color.parseColor("Blue"));
             }
         });
+        Toast.makeText(this, "this is onCreate Function", Toast.LENGTH_SHORT).show();
+    }
+
+    protected void onStart()
+    {
+        super.onStart();
+        Toast.makeText(this, "this is onStart Function", Toast.LENGTH_SHORT).show();
+
+    }
+
+    protected void onResume()
+    {
+        super.onResume();
+        Toast.makeText(this, "this is onResume Function", Toast.LENGTH_SHORT).show();
+    }
+
+    protected void onPause()
+    {
+        super.onPause();
+        Toast.makeText(this, "this is onPause Function", Toast.LENGTH_SHORT).show();
+    }
+
+    protected void onStop()
+    {
+        super.onStop();
+        Toast.makeText(this, "this is onStop Function", Toast.LENGTH_SHORT).show();
     }
 }
