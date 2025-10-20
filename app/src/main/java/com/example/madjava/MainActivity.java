@@ -1,5 +1,6 @@
 package com.example.madjava;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -11,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn1, btn2, btn3;
+    Button btn1, btn2, btn3, btn4;
     ConstraintLayout layout;
 
     @Override
@@ -19,9 +20,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
+        btn4 = findViewById(R.id.btn4);
+
         layout = findViewById(R.id.main);
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +45,22 @@ public class MainActivity extends AppCompatActivity {
                 layout.setBackgroundColor(Color.parseColor("Blue"));
             }
         });
+
+        btn4.setOnClickListener(new View.OnClickListener(){
+            @Override()
+            public  void onClick(View view){
+                startActivity();
+            }
+        });
         Toast.makeText(this, "this is onCreate Function", Toast.LENGTH_SHORT).show();
     }
+
+    private void startActivity()
+    {
+        Intent myintent = new Intent(this, MainActivity2.class);
+        startActivity(myintent);
+    }
+
 
     protected void onStart()
     {
