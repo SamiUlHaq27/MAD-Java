@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn1, btn2, btn3, btn4;
+    Button btn1, btn2;
     ConstraintLayout layout;
 
     @Override
@@ -23,8 +23,6 @@ public class MainActivity extends AppCompatActivity {
 
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
 
         layout = findViewById(R.id.main);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -33,20 +31,8 @@ public class MainActivity extends AppCompatActivity {
                  layout.setBackgroundColor(Color.parseColor("Green"));
             }
         });
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                layout.setBackgroundColor(Color.parseColor("Red"));
-            }
-        });
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                layout.setBackgroundColor(Color.parseColor("Blue"));
-            }
-        });
 
-        btn4.setOnClickListener(new View.OnClickListener(){
+        btn2.setOnClickListener(new View.OnClickListener(){
             @Override()
             public  void onClick(View view){
                 startActivity();
