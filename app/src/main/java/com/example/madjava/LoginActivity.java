@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
         Boolean isLoggedIn;
         isLoggedIn = sp.getBoolean("IsLoggedIn", false);
-        if (isLoggedIn == true) {
+        if (isLoggedIn) {
             startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
