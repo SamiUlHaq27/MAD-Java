@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello Welcome to the login Activity"
+        android:textColor="#ff00"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/usertxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UserName"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:padding="20dp"
+        app:layout_constraintTop_toBottomOf="@id/txt1"
+        app:layout_constraintStart_toStartOf="parent"></TextView>
+    <TextView
+        android:id="@+id/passtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="Password"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="74dp"
+        tools:layout_editor_absoluteY="28dp"
+        app:layout_constraintTop_toBottomOf="@id/usertxt"
+        app:layout_constraintStart_toStartOf="parent"></TextView>
+    <EditText
+        android:id="@+id/userInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:hint="Enter user name here"
+        app:layout_constraintTop_toBottomOf="@id/txt1"
+        app:layout_constraintStart_toEndOf="@+id/usertxt">
+
+    </EditText>
+    <EditText
+        android:id="@+id/passInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:hint=".................."
+        app:layout_constraintTop_toBottomOf="@id/userInput"
+        app:layout_constraintStart_toEndOf="@+id/passtxt">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        app:layout_constraintTop_toBottomOf="@+id/passInput"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <Button
+        android:id="@+id/registerbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        app:layout_constraintTop_toBottomOf="@id/passInput"
+        app:layout_constraintStart_toEndOf="@+id/loginbtn"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

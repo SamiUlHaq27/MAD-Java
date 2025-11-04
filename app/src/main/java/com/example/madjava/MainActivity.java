@@ -1,6 +1,7 @@
 package com.example.madjava;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -12,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class MainActivity extends AppCompatActivity {
-    Button btn1, btn2;
+    Button btn1, btn2, btn3;
     ConstraintLayout layout;
 
     @Override
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
 
         layout = findViewById(R.id.main);
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -36,6 +38,18 @@ public class MainActivity extends AppCompatActivity {
             @Override()
             public  void onClick(View view){
                 startActivity();
+            }
+        });
+
+        SharedPreferences sp = getSharedPreferences("login", MODE_PRIVATE);
+
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor edit = sp.edit();
+                edit.putBoolean("IsLoggedIn", false);
+                edit.apply();
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
             }
         });
         Toast.makeText(this, "this is onCreate Function", Toast.LENGTH_SHORT).show();
