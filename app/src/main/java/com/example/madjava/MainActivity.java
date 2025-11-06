@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     ConstraintLayout layout;
     Switch sw;
     Boolean isDarkMode;
+    TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
         btn3 = findViewById(R.id.btn3);
         sw = findViewById(R.id.switch1);
         sw.setChecked(isDarkMode);
+        title = findViewById(R.id.home_title);
+        Intent intent = getIntent();
+        title.setText(String.format("Welcome! %s", intent.getStringExtra("username")));
 
         layout = findViewById(R.id.main);
         btn1.setOnClickListener(new View.OnClickListener() {

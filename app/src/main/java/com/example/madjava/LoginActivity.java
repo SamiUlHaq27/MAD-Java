@@ -39,7 +39,9 @@ public class LoginActivity extends AppCompatActivity {
         Boolean isLoggedIn;
         isLoggedIn = sp.getBoolean("IsLoggedIn", false);
         if (isLoggedIn) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.putExtra("username", sp.getString("username:", "no-name"));
+            startActivity(intent);
             finish();
         }
         registerBtn.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +62,9 @@ public class LoginActivity extends AppCompatActivity {
                     ed.putBoolean("IsLoggedIn", true);
                     ed.apply();
                     Toast.makeText(LoginActivity.this, "login Successful", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("username", u1);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid User name or password", Toast.LENGTH_SHORT).show();
                 }
