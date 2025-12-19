@@ -28,6 +28,7 @@ public class MainActivity2 extends AppCompatActivity {
         dataList.add("Activity life cycle");
         dataList.add("Intents");
         dataList.add("Notification");
+        dataList.add("Media Player");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             ch = new NotificationChannel("ch_1000","chat_channel", NotificationManager.IMPORTANCE_DEFAULT);
         }
@@ -46,6 +47,9 @@ public class MainActivity2 extends AppCompatActivity {
                         break;
                     case 2:
                         Send_Notification();
+                        break;
+                    case 3:
+                        Media_Player_Activity();
                         break;
                 }
             }
@@ -84,5 +88,13 @@ public class MainActivity2 extends AppCompatActivity {
                 .setContentIntent(pendingIntent)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         nm.notify(1000,NB.build());
+    }
+
+    protected void Media_Player_Activity()
+    {
+        //Explicit Intent
+        Intent myintent = new Intent(this, AndroidServices.class);
+        startActivity(myintent);
+
     }
 }

@@ -13,6 +13,14 @@
         android:roundIcon="@mipmap/s_app_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.MADJava">
+        <service
+            android:name=".MediaService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".AndroidServices"
+            android:exported="true" />
         <activity
             android:name=".SignupActivity"
             android:exported="false" />
@@ -32,12 +40,11 @@
             android:name=".ActivityLifecycle"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name="MainActivity2"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
-
     </application>
 
 </manifest>
