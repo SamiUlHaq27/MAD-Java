@@ -17,6 +17,8 @@ public class MediaService extends Service {
     public static final String ACTION_PAUSE = "com.example.madjava.ACTION_PAUSE";
     public static final String ACTION_STOP = "com.example.madjava.ACTION_STOP";
     public static final String BROADCAST_ACTION = "com.example.madjava.MEDIA_STATUS_BROADCAST";
+    public static String CURRENT_STATUS = STATUS_STOPPED;
+
 
     private MediaPlayer mediaPlayer;
 
@@ -76,7 +78,9 @@ public class MediaService extends Service {
     }
 
     private void sendMediaStatusBroadcast(String status) {
+        CURRENT_STATUS = status;
         Intent intent = new Intent(BROADCAST_ACTION);
+        intent.setPackage(getPackageName());
         intent.putExtra(MEDIA_STATUS, status);
         sendBroadcast(intent);
     }

@@ -18,12 +18,13 @@ import androidx.core.view.WindowInsetsCompat;
 public class AndroidServices extends AppCompatActivity {
     Button playBtn, pauseBtn, stopBtn;
     TextView statusText;
+    String status = "STOPPED";
 
     private BroadcastReceiver mediaStatusReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String status = intent.getStringExtra(MediaService.MEDIA_STATUS);
-            statusText.setText("Status: " + status);
+            status = intent.getStringExtra(MediaService.MEDIA_STATUS);
+            statusText.setText("Status: "+status);
         }
     };
 
@@ -74,6 +75,7 @@ public class AndroidServices extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+        statusText.setText("Status: "+MediaService.CURRENT_STATUS);
         registerReceiver(mediaStatusReceiver, new IntentFilter(MediaService.BROADCAST_ACTION), RECEIVER_NOT_EXPORTED);
     }
 
